@@ -1,0 +1,8 @@
+<!-- Launch file to initialize the arm files-->
+
+<launch>
+    
+    <node pkg = "arm" name = "pickup_remote" type = "pickup_remote.py"/>
+    <node pkg = "arm" name = "release_remote" type = "release_remote.py"/>
+
+</launch>

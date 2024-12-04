@@ -1,0 +1,11 @@
+<!-- Launch file to initialize the navigation files-->
+
+<launch>
+    
+    <node pkg = "navigation" name = "drive" type = "drive.py"/>
+    <node pkg = "navigation" name = "roam" type = "roam.py"/>
+    <node pkg = "navigation" name = "to_user" type = "to_user.py"/>
+    <node pkg = "navigation" name = "orient_remote" type = "orient_remote.py"/>
+    <node pkg = "navigation" name = "find_remote_camera" type = "find_remote_camera.py"/>
+
+</launch>
