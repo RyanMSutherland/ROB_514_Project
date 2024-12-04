@@ -7,21 +7,27 @@ from geometry_msgs.msg import *
 
 class Location:
     def __init__(self):
-        pose_publisher = rospy.Publisher('initialpose', PoseWithCovarianceStamped)
+        pose_publisher = rospy.Publisher('/initialpose', PoseWithCovarianceStamped, queue_size = 10)
         p = PoseWithCovarianceStamped()
-        msg = PoseWithCovariance()
-        msg.pose = Pose(Point(0.0, 0.0, 0.0), Quaternion(0.000, 0.000, 0.000, 1.0))
-        msg.covariance = [0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 
-                          0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 
-                          0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
-                          0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
-                          0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
-                          0.0, 0.0, 0.0, 0.0, 0.0, 0.06853891945200942]
+        p.header.frame_id = "map"
+        p.pose.pose.position.x = 0.0
+        p.pose.pose.position.y = 0.0
+        p.pose.pose.orientation.w = 1.0
         
-        p.pose = msg
+        # msg = PoseWithCovariance()
+        # msg.pose = Pose(Point(0.0, 0.0, 0.0), Quaternion(0.000, 0.000, 0.000, 1.0))
+        # msg.covariance = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+        #                   0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+        #                   0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+        #                   0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+        #                   0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+        #                   0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        
+        # p.pose = msg
         pose_publisher.publish(p)
 
     def set_movement_goal():
+        pass
         
 
         
